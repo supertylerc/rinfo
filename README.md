@@ -1,79 +1,58 @@
+# rinfo [![Build Status](https://travis-ci.org/supertylerc/rinfo.svg?branch=master)](https://travis-ci.org/supertylerc/rinfo) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/supertylerc/rinfo/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/supertylerc/rinfo/?branch=master)
+
 ## About ##
 
-rinfo is a Ruby script that allows you to look up IP information for a specified IP or prefix.  I wrote it because I'm lazy and can never remember the full whois command or server.
+rinfo is a Ruby script that allows you to look up IP information for a specified
+IP or prefix.  I wrote it because I'm lazy and can never remember the full whois
+command or server.
+
+> The instructions below assume you have symlinked `rinfo.rb` to `rinfo`
+> somewhere in your path.
 
 ## Usage ##
 
-    rinfo <option> [route]
-    
+    rinfo -t <type> -q <query object>
+
     Options:
-      -o  Originating ASN of [route]
-      -q  Query route registries for basic information on [route] 
-      
+      -t  Type of query.  Either 'ip' (IP Address) or 'asn' (AS Number).
+      -q  Query object.  An IP address if your query type is 'ip' or an
+          ASN if your query type is 'asn'.
+
 
 ## Installation ##
 
-Clone it, copy and paste it, download the raw, whatever.
+Clone it, copy and paste it, download the raw, whatever.  I recommend
+that you symlink `rinfo.rb` to `rinfo`.
 
 
-### Example - Registry Query ###
+### Example - IP Query ###
 
-    ./rinfo -q 8.8.8.8
-    AS         : 15169
-    IP         : 8.8.8.8
-    BGPPrefix  : 8.8.8.0/24
-    CC         : US
-    Registry   : arin
-    Allocated  : 1992-12-01
-    ASName     : GOOGLE-GoogleInc.
+```bash
+╭─tyler at deathstar in ~/bin on master✘✘✘ using ‹ruby-2.1.1› 14-06-26 - 11:24:21
+╰─○ ./rinfo -t ip -q 8.8.8.8
+ASN      : 15169
+Org      : GOOGLE - GOOGLE INC.,US
+Country  : US
+Registry : ARIN
+CIDR     : 8.8.8.0/24
+```
 
 
 ### Example - Origin Query ###
 
-    ./rinfo -o 8.8.8.8
-    route:         0.0.0.0/1
-    origin:        AS3303
-    descr:         SWISSCOM Swisscom (Switzerland) Ltd
-    lastupd-frst:  2013-06-20 09
-    lastupd-last:  2013-06-25 10
-    seen-at:       rrc04
-    num-rispeers:  2
-    source:        RISWHOIS
-    
-    
-    route:         8.0.0.0/8
-    origin:        AS3356
-    descr:         LEVEL3 Level 3 Communications
-    lastupd-frst:  2013-06-14 15
-    lastupd-last:  2013-06-29 23
-    seen-at:       rrc00,rrc01,rrc03,rrc04,rrc05,rrc06,rrc07,rrc10,rrc11,rrc12,rrc13,rrc14,rrc15
-    num-rispeers:  107
-    source:        RISWHOIS
-    
-    
-    route:         8.0.0.0/9
-    origin:        AS3356
-    descr:         LEVEL3 Level 3 Communications
-    lastupd-frst:  2013-06-14 15
-    lastupd-last:  2013-06-29 23
-    seen-at:       rrc00,rrc01,rrc03,rrc04,rrc05,rrc06,rrc07,rrc10,rrc11,rrc12,rrc13,rrc14,rrc15
-    num-rispeers:  105
-    source:        RISWHOIS
-    
-    
-    route:         8.8.8.0/24
-    origin:        AS15169
-    descr:         GOOGLE - Google Inc.
-    lastupd-frst:  2013-06-19 02
-    lastupd-last:  2013-06-29 23
-    seen-at:       rrc00,rrc01,rrc03,rrc04,rrc05,rrc06,rrc07,rrc10,rrc11,rrc12,rrc13,rrc14,rrc15
-    num-rispeers:  114
-    source:        RISWHOIS
+```bash
+╭─tyler at deathstar in ~/bin on master✘✘✘ using ‹ruby-2.1.1› 14-06-26 - 11:24:25
+╰─○ ./rinfo -t asn -q 15169
+ASN      : 15169
+Org      : GOOGLE - GOOGLE INC.,US
+Country  : US
+Registry : ARIN
+```
 
 
 # Author #
 Tyler Christiansen
-tylerc@label-switched.net
+tyler@oss-stack.io
 
 # License #
 BSD 2-Clause License
