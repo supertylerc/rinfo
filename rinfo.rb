@@ -3,14 +3,14 @@
 require_relative 'lib/rinfo'
 require 'trollop'
 
-opts = Trollop::options do
-  opt :type, "IP or ASN", :type => :string
-  opt :query, "", :type => :string
+opts = Trollop.options do
+  opt :type, '`ip` or `asn`.', type: :string
+  opt :query, "IP address or AS number.", type: :string
 end
 
-abort "Must specify type.  Type must be `ip` or `asn`." unless opts[:type]
-abort "Query is required.  " +
-  "Query must be IP address or Autonomous System Number." unless opts[:query]
+abort 'Must specify type.  Type must be `ip` or `asn`.' unless opts[:type]
+abort 'Query is required.  Query must be IP address or ' \
+      'Autonomous System Number.' unless opts[:query]
 
 opts[:type] = opts[:type].to_sym
 

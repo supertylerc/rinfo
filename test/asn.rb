@@ -11,7 +11,7 @@ class TestASN < Minitest::Test
     @asn_info.query '7029'
     assert_equal '7029', @asn_info.asn
     assert_equal 'WINDSTREAM - WINDSTREAM COMMUNICATIONS INC,US',
-      @asn_info.as_name
+                 @asn_info.as_name
     assert_equal 'US', @asn_info.country
     assert_equal 'ARIN', @asn_info.registry
   end
