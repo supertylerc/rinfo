@@ -2,27 +2,30 @@
 
 ## About ##
 
-rinfo is a Ruby script that allows you to look up IP information for a specified
+`rinfo` is a Ruby script that allows you to look up IP information for a specified
 IP or prefix.  I wrote it because I'm lazy and can never remember the full whois
 command or server.
 
 > The instructions below assume you have symlinked `rinfo.rb` to `rinfo`
 > somewhere in your path.
 
+
 ## Usage ##
 
-    rinfo -t <type> -q <query object>
+```bash
+rinfo -t <type> -q <query object>
 
-    Options:
-      -t  Type of query.  Either 'ip' (IP Address) or 'asn' (AS Number).
-      -q  Query object.  An IP address if your query type is 'ip' or an
-          ASN if your query type is 'asn'.
+Options:
+  -t  Type of query.  Either 'ip' (IP Address) or 'asn' (AS Number).
+  -q  Query object.  An IP address if your query type is 'ip' or an
+      ASN if your query type is 'asn'.
+```
 
 
 ## Installation ##
 
-Clone it, copy and paste it, download the raw, whatever.  I recommend
-that you symlink `rinfo.rb` to `rinfo`.
+Clone it, download the raw, whatever.  I recommend that you symlink
+`rinfo.rb` to `rinfo`.
 
 
 ### Example - IP Query ###
