@@ -5,7 +5,7 @@ require 'trollop'
 
 opts = Trollop.options do
   opt :type, '`ip` or `asn`.', type: :string
-  opt :query, "IP address or AS number.", type: :string
+  opt :query, 'IP address or AS number.', type: :string
 end
 
 abort 'Must specify type.  Type must be `ip` or `asn`.' unless opts[:type]
